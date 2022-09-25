@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Rio Febriyan</title>
+  <link rel="stylesheet" href="table.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+  <h1>10 TEMAN IKMI</h1>
+  <h2 onclick="darkMode()">dark mode</h2>
+  <div class="conteiner">
+    <table  border="1px solid black" cellspacing="0" style="width: 90%;" >
+      <tr>
+        <th>Nama</th>
+        <th class="th2">Alamat</th>
+        <th colspan="2" class="th2">Atribut</th>
+      <tr id='row__1'>
+        <td class="nama_mhs">Ayu</td>
+        <td class="Alamat">Ciamis Jawa Timur</td>
+        <td class="hapus" id="hapus__1">Hapus</td>
+      </tr> 
+      <tr id='row__2'>
+        <td class="nama_mhs">Angga</td>
+        <td class="Alamat">DS.pangkah Kec.Slawi Kab.Tegal </td>
+        <td class="hapus" id="hapus__2">Hapus</td>
+      </tr>
+      <tr id='row__3'>
+        <td class="nama_mhs">Arip</td>
+        <td class="Alamat">Gunung Bumi Ayu Brebes</td>
+        <td class="hapus" id="hapus__3">Hapus</td>
+      </tr>
+      <tr id='row__4' >
+        <td class="nama_mhs">Deris</td>
+        <td class="Alamat">Garut Jawatimur</td>
+        <td class="hapus" id="hapus__4">Hapus</td>
+      </tr>
+      <tr id='row__5'>
+        <td class="nama_mhs">Febri</td>
+        <td class="Alamat">DS.Jatibogor kec. Suradadi kab.Tegal</td>
+        <td class="hapus" id="hapus__5">Hapus</td>
+      </tr>
+      <tr id='row__6'>
+        <td class="nama_mhs">Gunawan</td>
+        <td class="Alamat">Pondokan Breber</td>
+        <td class="hapus" id="hapus__6">Hapus</td>
+      </tr>
+      <tr id='row__7'>
+        <td class="nama_mhs">Mukhlis</td>
+        <td class="Alamat"> Pondokan Breber</td>
+        <td class="hapus" id="hapus__7">Hapus</td>
+      </tr>
+      <tr id='row__8'>
+        <td class="nama_mhs">Nurul</td>
+        <td class="Alamat">Ciamis Jawa Barat</td>
+        <td class="hapus" id="hapus__8">Hapus</td>
+      </tr>
+      <tr id='row__9'>
+        <td class="nama_mhs">Rahmalia</td>
+        <td class="Alamat">Garut Jawa Barat</td>
+        <td class="hapus" id="hapus__9">Hapus</td>
+      </tr>
+      <tr id='row__10'>
+        <td class="nama_mhs">Sayid</td>
+        <td class="Alamat">Jl.Pemuda no.6 Tangerang</td>
+        <td class="hapus" id="hapus__10">Hapus</td>
+      </tr>
+    </table>
+    <script>
+       $(document).ready(function(){
+         $('.nama_mhs').click(function(){
+        //alert(0)
+        let isi = $(this).text();
+        let yakin = confirm('mau ubah nama? ');
+        if(!yakin)return;
+        let isi2 = prompt('ubah dengan:', isi);
+       // return
+       $(this).text(isi2);
+       //$('.nama_mhs').text(isi)
+       })
+       //alamat
+       $('.Alamat').click(function(){
+         let rumah = $(this).text();
+         let bener = confirm('mau ubah alamat? ')
+         if(!bener) return;
+         //alert('alamat')
+         let rumah2 = prompt('ubah alamat :',rumah);
+         $(this).text(rumah2);
+         return;
+         $('.Alamat').text(rumah2);
+       })
+       $('.hapus').click(function(){
+        //alert(45)
+        let yakin = confirm('Yakin mau hapus?')
+        if(!yakin) return;
+        alert('oke')
+        let id = $(this).prop('id');
+        let rid = id.split('__');
+        let baris_ke = rid[1];
+        
+        $('#row__'+baris_ke).slideUp()
+       })
+      })
+      function darkMode() {
+        const dark = document.body
+        dark.classList.toggle('dark')
+      }
+    </script>
+  </div>
+</body>
+</html>
